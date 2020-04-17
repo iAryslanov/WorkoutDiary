@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemTeal
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0.8980392157, green: 1, blue: 1, alpha: 1)
+    }
 
 
 }

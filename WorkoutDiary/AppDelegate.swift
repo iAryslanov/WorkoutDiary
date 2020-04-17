@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible() // Made windnow main and displayable
-        let rootViewController = ViewController()
-        window?.rootViewController = rootViewController
+        window?.makeKeyAndVisible() // Made window main and displayable
+//        let rootViewController = ViewController()
+        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+//        let tabBarController = UITabBarController()
+//        tabBarController.setViewControllers([rootViewController], animated: true)
         return true
     }
 
