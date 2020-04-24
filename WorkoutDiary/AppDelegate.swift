@@ -12,18 +12,44 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+//    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible() // Made window main and displayable
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.makeKeyAndVisible() // Made window main and displayable.
 //        let rootViewController = ViewController()
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+//        window?.rootViewController = UINavigationController(rootViewController: ViewController())
 //        let tabBarController = UITabBarController()
 //        tabBarController.setViewControllers([rootViewController], animated: true)
+        
+        print("Приложение загружено")
         return true
     }
-
+    
+ func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        print("Приложение практически загружено")
+        return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        print("Приложение перешло в состояние Active")
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        print("Приложение перешло в состояние Inactive")
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("Приложение перешло в бэкграунд")
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print("Приложение вернулось в состояние Inactive")
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("Приложение сейчас будет выгружено из памяти")
+    }
    
 
     // MARK: - Core Data stack
