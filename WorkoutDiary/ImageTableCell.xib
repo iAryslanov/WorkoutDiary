@@ -12,7 +12,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="ImageTableCell" customModule="WorkoutDiary" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="362" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="362" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="362" height="85"/>
                         <color key="backgroundColor" red="0.8980392157" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="85" id="cYB-7M-1Ig"/>
+                            <constraint firstAttribute="height" constant="85" id="fm5-LP-u66"/>
                         </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dCt-c7-Bsu">
@@ -51,7 +51,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="vbu-RM-zxk" secondAttribute="bottom" constant="4" id="DBZ-zH-Lxm"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vbu-RM-zxk" secondAttribute="bottom" constant="4" id="DBZ-zH-Lxm"/>
                     <constraint firstItem="vbu-RM-zxk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="DRt-X6-LHL"/>
                     <constraint firstAttribute="trailing" secondItem="vbu-RM-zxk" secondAttribute="trailing" id="kzP-9I-0jQ"/>
                     <constraint firstItem="vbu-RM-zxk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pht-Su-ekV"/>
