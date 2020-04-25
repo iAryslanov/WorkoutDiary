@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B34935E6244EDBB200687406 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34935E5244EDBB200687406 /* SceneDelegate.swift */; };
 		B34935F1244EE4FE00687406 /* ImageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B34935EF244EE4FE00687406 /* ImageTableCell.xib */; };
 		B34935F2244EE4FE00687406 /* ImageTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34935F0244EE4FE00687406 /* ImageTableCell.swift */; };
 		B3D8BAB82446D8CA00551A5A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D8BAB72446D8CA00551A5A /* AppDelegate.swift */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B34935E5244EDBB200687406 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B34935EF244EE4FE00687406 /* ImageTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableCell.xib; sourceTree = "<group>"; };
 		B34935F0244EE4FE00687406 /* ImageTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableCell.swift; sourceTree = "<group>"; };
 		B3D8BAB42446D8CA00551A5A /* WorkoutDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				B3D8BAB72446D8CA00551A5A /* AppDelegate.swift */,
-				B34935E5244EDBB200687406 /* SceneDelegate.swift */,
 				B3D8BABB2446D8CA00551A5A /* ViewController.swift */,
 				B34935F0244EE4FE00687406 /* ImageTableCell.swift */,
 				B34935EF244EE4FE00687406 /* ImageTableCell.xib */,
@@ -151,7 +148,6 @@
 				B3D8BABC2446D8CA00551A5A /* ViewController.swift in Sources */,
 				B3D8BAC22446D8CB00551A5A /* WorkoutDiary.xcdatamodeld in Sources */,
 				B3D8BAB82446D8CA00551A5A /* AppDelegate.swift in Sources */,
-				B34935E6244EDBB200687406 /* SceneDelegate.swift in Sources */,
 				B34935F2244EE4FE00687406 /* ImageTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
