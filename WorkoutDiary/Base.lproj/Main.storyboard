@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1NR-EY-M9W">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mae-PF-WPm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,57 +7,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Trainings-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorkoutDiary" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Trainings" id="BYZ-38-t0r" customClass="ViewController" customModule="WorkoutDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FD3-d0-nXc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FD3-d0-nXc" secondAttribute="trailing" id="DDF-GD-7eE"/>
+                            <constraint firstAttribute="bottom" secondItem="FD3-d0-nXc" secondAttribute="bottom" id="Jkm-gd-URW"/>
+                            <constraint firstItem="FD3-d0-nXc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dC2-LA-uRW"/>
+                            <constraint firstItem="FD3-d0-nXc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="sX3-zO-oKw"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="f1g-1Y-sV9"/>
+                    <navigationItem key="navigationItem" title="Training history" id="f1g-1Y-sV9"/>
+                    <connections>
+                        <outlet property="tableView" destination="FD3-d0-nXc" id="Ygd-rH-AhO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2963.768115942029" y="180.13392857142856"/>
+            <point key="canvasLocation" x="3620" y="179"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="4W1-Ep-JW4">
+        <!--Navigation Controller-->
+        <scene sceneID="FGn-Nr-dKW">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1NR-EY-M9W" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mae-PF-WPm" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gi6-2b-l7t">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="kft-0u-2UC" kind="relationship" relationship="viewControllers" id="B04-bf-ub0"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gc4-oo-DWx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1143.4782608695652" y="180.13392857142856"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="8dA-T3-boG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kft-0u-2UC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bml-RM-QYN"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="218-S6-68T">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="blh-oM-qaQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0tY-j0-2Bs"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="KmM-ht-E15"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6uI-0u-fvB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kKE-Ii-lbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2053.6231884057975" y="180.13392857142856"/>
+            <point key="canvasLocation" x="2900" y="179.46428571428569"/>
         </scene>
     </scenes>
 </document>
