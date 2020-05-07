@@ -22,33 +22,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let tabBarController = UITabBarController()
 //        tabBarController.setViewControllers([rootViewController], animated: true)
         
-        print("Приложение загружено")
+        print("Application uploaded")
         return true
     }
     
  func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        print("Приложение практически загружено")
+        print("The application is almost loaded")
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        print("Приложение перешло в состояние Active")
+        print("The application changed state to Active")
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        print("Приложение перешло в состояние Inactive")
+        print("The application changed state to Inactive")
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        print("Приложение перешло в бэкграунд")
+        print("The application has switched to the background state")
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        print("Приложение вернулось в состояние Inactive")
+        print("Application returned to Inactive state")
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        print("Приложение сейчас будет выгружено из памяти")
+        print("The application will now be unloaded from memory")
     }
    
 
