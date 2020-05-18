@@ -65,8 +65,8 @@
 				B34935F0244EE4FE00687406 /* ImageTableCell.swift */,
 				B34935EF244EE4FE00687406 /* ImageTableCell.xib */,
 				B3D8BABD2446D8CA00551A5A /* Main.storyboard */,
-				B3D8BAC32446D8CC00551A5A /* Assets.xcassets */,
 				B3D8BAC52446D8CC00551A5A /* LaunchScreen.storyboard */,
+				B3D8BAC32446D8CC00551A5A /* Assets.xcassets */,
 				B3D8BAC82446D8CC00551A5A /* Info.plist */,
 				B3D8BAC02446D8CB00551A5A /* WorkoutDiary.xcdatamodeld */,
 			);
