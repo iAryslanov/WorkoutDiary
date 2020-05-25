@@ -14,8 +14,10 @@ protocol HistoryTrainsViewControllerDelegate: class {
 
 class HistoryTrainsViewController: UIViewController {
     
-    private var trains: [Train] = [] {
-        didSet { trainsTableView.reloadData() }
+    private var trains: [Train] = Train.loadTrain() {
+        didSet {
+            Train.save(trains) // Save in UserDefaults.
+        }
     }
     
     @IBOutlet weak private var trainsTableView: UITableView!
@@ -25,13 +27,15 @@ class HistoryTrainsViewController: UIViewController {
         let storyboard = UIStoryboard(name: Constants.mainStoryboardID, bundle: nil)
         guard let vc = storyboard.instantiateViewController(identifier: Constants.addTrainViewControllerID) as? AddTrainViewController else { return }
         
-        vc.delegate = self // Delegate to transfer data from the AddTrainViewController
+        vc.delegate = self // Delegate to transfer data from the AddTrainViewController.
         
-        self.present(vc, animated: true) // Show modal
+        self.present(vc, animated: true) // Show modal.
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        trainsTableView.tableFooterView = UIView() // Removes lines in a TableView without cells.
         
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.337254902, green: 0.7803921569, blue: 0.9803921569, alpha: 1)
         trainsTableView.backgroundColor = #colorLiteral(red: 0.8980392157, green: 1, blue: 1, alpha: 1)
@@ -63,6 +67,14 @@ extension HistoryTrainsViewController: UITableViewDataSource, UITableViewDelegat
         return cell
     }
     
+    // Editing table cells.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            trains.remove(at: indexPath.row)
+            trainsTableView.deleteRows(at: [indexPath], with: .bottom)
+        }
+    }
+    
     // MARK: - Table view delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,5 +85,6 @@ extension HistoryTrainsViewController: UITableViewDataSource, UITableViewDelegat
 extension HistoryTrainsViewController: HistoryTrainsViewControllerDelegate {
     func update(_ train: Train) {
         trains.append(train)
+        trainsTableView.reloadData()
     }
 }

@@ -28,11 +28,12 @@ class AddTrainViewController: UIViewController {
     
     
     @IBAction func saveButton(_ sender: UIButton) {
-        
+        if dateTextField.text!.count > 0 && kindOfTrainTextField.text!.count > 0 {
         let train = Train(dateOfTrain: dateTextField.text ?? "Invalid date.",
                           kindOfTrain: kindOfTrainTextField.text ?? "Invalid kind of train.")
 
         delegate?.update(train)
+        }
         
         // MARK: - Navigation
         self.dismiss(animated: true, completion: nil)
