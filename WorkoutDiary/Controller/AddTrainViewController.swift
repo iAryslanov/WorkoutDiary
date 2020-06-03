@@ -10,6 +10,8 @@ import UIKit
 
 class AddTrainViewController: UIViewController {
     
+    let kindOfTrain = ["Technical", "General Physical Preparation", "Climbing Wall"]
+        
     weak var delegate: HistoryTrainsViewControllerDelegate?
     
     @IBOutlet weak var dateTextField: UITextField!
@@ -21,11 +23,12 @@ class AddTrainViewController: UIViewController {
         super.viewDidLoad()
         
         createDatePicker()
+        createKindPickerView()
         view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 1, blue: 1, alpha: 1)
     }
     
     func createDatePicker() {
-        
+        dateTextField.placeholder = "Date of train"
         // Assign date picker to the text field.
         dateTextField.inputView = datePicker
         dateTextField.textAlignment = .center
@@ -75,6 +78,27 @@ class AddTrainViewController: UIViewController {
         dateTextField.text = formatter.string(from: datePicker.date)
     }
     
+    func createKindPickerView() {
+        kindOfTrainTextField.placeholder = "Kind of train"
+        
+        let kindPickerView = UIPickerView()
+        kindPickerView.dataSource = self
+        kindPickerView.delegate = self
+        
+        // Assign picker view to the text field.
+        kindOfTrainTextField.inputView = kindPickerView
+        
+        kindOfTrainTextField.textAlignment = .center
+        
+        // Customisation.
+        kindPickerView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    @objc
+    func kindDonePressed() {
+        view.endEditing(true)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -90,5 +114,45 @@ class AddTrainViewController: UIViewController {
         
         // MARK: - Navigation
         self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AddTrainViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    // MARK: Picker View Data Source -
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        kindOfTrain.count
+    }
+    
+    // MARK: Picker View Delegate -
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return kindOfTrain[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerViewLabel = UILabel()
+        
+        if let currentLabel = view as? UILabel {
+            pickerViewLabel = currentLabel
+        } else {
+            pickerViewLabel = UILabel()
+        }
+
+        pickerViewLabel.backgroundColor = #colorLiteral(red: 0.8996260762, green: 0.9990888238, blue: 1, alpha: 1)
+        pickerViewLabel.textColor = #colorLiteral(red: 0.3364223838, green: 0.7810961604, blue: 0.9801357388, alpha: 1)
+        pickerViewLabel.textAlignment = .center
+        pickerViewLabel.font = UIFont(name: "Noteworthy", size: 20)
+        pickerViewLabel.text = kindOfTrain[row]
+        
+        return pickerViewLabel
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        kindOfTrainTextField.text = kindOfTrain[row]
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 
 class Train: Codable {
     var dateOfTrain: String
-    var kindOfTrain: String // KindOfTrain
+    var kindOfTrain: String
     var id: String
     
     init(dateOfTrain: String, kindOfTrain: String) {
@@ -39,10 +39,4 @@ extension Train {
         }
         return returnValue
     }
-}
-
-enum KindOfTrain {
-    case technical
-    case generalPhysicalPreparation
-    case сlimbingWall
 }
