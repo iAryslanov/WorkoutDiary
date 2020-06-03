@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/iaryslanov/Developer/SurfSchool/WorkoutDiary/WorkoutDiary/Application/Info.plist">
-   </FileRef>
-   <FileRef
-      location = "group:../WorkoutDiary/Application">
-   </FileRef>
-   <FileRef
       location = "self:">
    </FileRef>
 </Workspace>

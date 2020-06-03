@@ -21,6 +21,7 @@ class HistoryTrainsViewController: UIViewController {
     }
     
     @IBOutlet weak private var trainsTableView: UITableView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     // MARK: - Navigation
     @IBAction func goToAddTrainViewController(_ sender: UIBarButtonItem) {
@@ -34,8 +35,7 @@ class HistoryTrainsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        trainsTableView.tableFooterView = UIView() // Removes lines in a TableView without cells.
+        trainsTableView.tableFooterView = UIView() // Removes lines in a TableView without cells below.
         
         navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.337254902, green: 0.7803921569, blue: 0.9803921569, alpha: 1)
         trainsTableView.backgroundColor = #colorLiteral(red: 0.8980392157, green: 1, blue: 1, alpha: 1)
