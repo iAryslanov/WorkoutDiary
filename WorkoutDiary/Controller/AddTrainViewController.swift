@@ -11,24 +11,51 @@ import UIKit
 class AddTrainViewController: UIViewController {
     
     let kindOfTrain = ["Technical", "General Physical Preparation", "Climbing Wall"]
-        
+    
     weak var delegate: HistoryTrainsViewControllerDelegate?
     
+    @IBOutlet weak var addTrainImageView: UIImageView!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var kindOfTrainTextField: UITextField!
     
+    let imagePicker = UIImagePickerController()
     let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 1, blue: 1, alpha: 1)
+        
+        imagePicker.delegate = self
+        
         createDatePicker()
         createKindPickerView()
-        view.backgroundColor = #colorLiteral(red: 0.8980392157, green: 1, blue: 1, alpha: 1)
+    }
+    
+    @IBAction func addImage() {
+        
+        let alert = UIAlertController(title: "Add image", message: nil, preferredStyle: .actionSheet)
+        let actionGallery = UIAlertAction(title: "From gallery", style: .default) { (alert) in
+            self.imagePicker.sourceType = .photoLibrary
+            self.present(self.imagePicker, animated: true, completion: nil)
+            self.imagePicker.allowsEditing = true
+        }
+        alert.addAction(actionGallery)
+        let actionCamera = UIAlertAction(title: "From camera", style: .default) { (alert) in
+            self.imagePicker.sourceType = .camera
+            self.present(self.imagePicker, animated: true, completion: nil)
+            self.imagePicker.allowsEditing = true
+        }
+        alert.addAction(actionCamera)
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actionCancel)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     func createDatePicker() {
         dateTextField.placeholder = "Date of train"
+        
         // Assign date picker to the text field.
         dateTextField.inputView = datePicker
         dateTextField.textAlignment = .center
@@ -94,20 +121,11 @@ class AddTrainViewController: UIViewController {
         kindPickerView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
-    @objc
-    func kindDonePressed() {
-        view.endEditing(true)
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    
+    // Save data in UserDefaults.
     @IBAction func saveButton(_ sender: UIButton) {
         if dateTextField.text!.count > 0 && kindOfTrainTextField.text!.count > 0 {
-            let train = Train(dateOfTrain: dateTextField.text ?? "Invalid date.",
-                              kindOfTrain: kindOfTrainTextField.text ?? "Invalid kind of train.")
+            let train = Train(dateOfTrain: dateTextField.text ?? "",
+                              kindOfTrain: kindOfTrainTextField.text ?? "")
             
             delegate?.update(train)
         }
@@ -142,7 +160,7 @@ extension AddTrainViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         } else {
             pickerViewLabel = UILabel()
         }
-
+        
         pickerViewLabel.backgroundColor = #colorLiteral(red: 0.8996260762, green: 0.9990888238, blue: 1, alpha: 1)
         pickerViewLabel.textColor = #colorLiteral(red: 0.3364223838, green: 0.7810961604, blue: 0.9801357388, alpha: 1)
         pickerViewLabel.textAlignment = .center
@@ -154,5 +172,16 @@ extension AddTrainViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         kindOfTrainTextField.text = kindOfTrain[row]
+    }
+}
+
+// A picture processing after selecting from a gallery or camera.
+extension AddTrainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickerImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            addTrainImageView.image = pickerImage
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

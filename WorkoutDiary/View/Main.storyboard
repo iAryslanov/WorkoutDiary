@@ -53,11 +53,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgrounSea" translatesAutoresizingMaskIntoConstraints="NO" id="hnS-D4-ZWG">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgrounSea" translatesAutoresizingMaskIntoConstraints="NO" id="hnS-D4-ZWG">
                                 <rect key="frame" x="20" y="20" width="335" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="vt9-lf-5lx"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pQB-Y6-A7D">
                                 <rect key="frame" x="20" y="334" width="335" height="34"/>
@@ -79,6 +84,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVn-b1-kK0">
+                                <rect key="frame" x="130" y="442" width="115" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="y8L-sX-IEg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="19"/>
+                                <state key="normal" title="Add Image">
+                                    <color key="titleColor" red="0.3499702811" green="0.77467125650000002" blue="0.98042160270000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addImage" destination="IVD-LK-qkQ" eventType="touchUpInside" id="TDY-tC-REO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -91,17 +115,22 @@
                             <constraint firstItem="9Uf-Wf-ChA" firstAttribute="leading" secondItem="Hve-cN-h27" secondAttribute="leading" constant="20" id="Hjn-52-Ffz"/>
                             <constraint firstItem="pQB-Y6-A7D" firstAttribute="top" secondItem="9Uf-Wf-ChA" secondAttribute="bottom" constant="20" id="Ied-gZ-lOt"/>
                             <constraint firstItem="hnS-D4-ZWG" firstAttribute="leading" secondItem="Hve-cN-h27" secondAttribute="leading" constant="20" id="Scy-il-c8Z"/>
+                            <constraint firstItem="lVn-b1-kK0" firstAttribute="top" secondItem="pQB-Y6-A7D" secondAttribute="bottom" constant="74" id="UHB-Bc-n6s"/>
                             <constraint firstItem="sRg-6C-n3n" firstAttribute="top" secondItem="pQB-Y6-A7D" secondAttribute="bottom" constant="120" id="d9R-sf-5sb"/>
+                            <constraint firstItem="lVn-b1-kK0" firstAttribute="leading" secondItem="Hve-cN-h27" secondAttribute="leading" constant="130" id="el9-Tu-NY3"/>
                             <constraint firstItem="sRg-6C-n3n" firstAttribute="centerX" secondItem="YOI-pP-gKY" secondAttribute="centerX" id="gRw-BH-eiT"/>
                             <constraint firstItem="9Uf-Wf-ChA" firstAttribute="top" secondItem="hnS-D4-ZWG" secondAttribute="bottom" constant="60" id="hTT-3r-RVL"/>
                             <constraint firstItem="pQB-Y6-A7D" firstAttribute="centerX" secondItem="YOI-pP-gKY" secondAttribute="centerX" id="j5o-Wy-m0k"/>
                             <constraint firstItem="Hve-cN-h27" firstAttribute="trailing" secondItem="hnS-D4-ZWG" secondAttribute="trailing" constant="20" id="opy-vk-2iY"/>
                             <constraint firstItem="pQB-Y6-A7D" firstAttribute="leading" secondItem="Hve-cN-h27" secondAttribute="leading" constant="20" id="qIG-6d-6qh"/>
+                            <constraint firstItem="Hve-cN-h27" firstAttribute="trailing" secondItem="lVn-b1-kK0" secondAttribute="trailing" constant="130" id="t3d-QT-8wj"/>
+                            <constraint firstItem="lVn-b1-kK0" firstAttribute="centerX" secondItem="YOI-pP-gKY" secondAttribute="centerX" id="tXH-fB-gdQ"/>
                             <constraint firstItem="sRg-6C-n3n" firstAttribute="leading" secondItem="Hve-cN-h27" secondAttribute="leading" constant="158" id="urI-lX-ERx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hve-cN-h27"/>
                     </view>
                     <connections>
+                        <outlet property="addTrainImageView" destination="hnS-D4-ZWG" id="wfh-uk-W7H"/>
                         <outlet property="dateTextField" destination="9Uf-Wf-ChA" id="Xpx-u0-pWN"/>
                         <outlet property="kindOfTrainTextField" destination="pQB-Y6-A7D" id="z2y-65-bHl"/>
                     </connections>

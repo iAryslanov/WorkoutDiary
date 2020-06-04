@@ -84,7 +84,7 @@ extension HistoryTrainsViewController: UITableViewDataSource, UITableViewDelegat
 
 extension HistoryTrainsViewController: HistoryTrainsViewControllerDelegate {
     func update(_ train: Train) {
-        trains.append(train)
+        trains.insert(train, at: 0)
         trainsTableView.reloadData()
     }
 }
